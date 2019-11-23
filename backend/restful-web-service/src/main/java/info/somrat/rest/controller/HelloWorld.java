@@ -14,8 +14,9 @@ public class HelloWorld {
 
     @GetMapping("/hello-world")
     public ResponseEntity<?> helloWorld() throws JSONException {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("message", "hello world");
-        return new ResponseEntity<>(jsonObject.toString(), HttpStatus.OK);
+        throw new RuntimeException("Errors ! Please check");
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("message", "hello world");
+//        return new ResponseEntity<>(jsonObject.toString(), HttpStatus.OK);
     }
 }

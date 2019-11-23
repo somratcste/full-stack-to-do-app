@@ -12,6 +12,7 @@ export class WelcomeComponent implements OnInit {
   name = '';
   welcomeMessageFromService: string;
 
+
   constructor(private route: ActivatedRoute,
               private service: WelcomeDataService) { }
 
@@ -21,12 +22,17 @@ export class WelcomeComponent implements OnInit {
 
   getWelcomeMessage() {
     this.service.executeHelloWordService().subscribe(
-      response => this.handleSuccessfulResponse(response)
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
     );
   }
 
   handleSuccessfulResponse(response) {
     this.welcomeMessageFromService = response.message;
+  }
+
+  handleErrorResponse(error) {
+    this.welcomeMessageFromService = error.error.message;
   }
 
 }

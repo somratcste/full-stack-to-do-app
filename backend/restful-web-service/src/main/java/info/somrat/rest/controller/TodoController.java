@@ -40,7 +40,7 @@ public class TodoController {
     @DeleteMapping("/users/{username}/todos/{id}")
     public ResponseEntity<Void> deleteTodo(
             @PathVariable String username, @PathVariable long id){
-        todoJpaRepository.findById(id);
+        todoJpaRepository.deleteById(id);
         return null;
     }
 

@@ -17,20 +17,6 @@ export class WelcomeDataService {
   }
 
   executeHelloWordService() {
-    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-
-    let headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString
-    });
-
-    return this.http.get<HelloWorld>('http://localhost:8080/hello-world', {headers});
-  }
-
-  createBasicAuthenticationHttpHeader() {
-    let username = 'nazmul';
-    let password = 'password';
-    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
-
-    return basicAuthHeaderString;
+    return this.http.get<HelloWorld>('http://localhost:8080/hello-world');
   }
 }

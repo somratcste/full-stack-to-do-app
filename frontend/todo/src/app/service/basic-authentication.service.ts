@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {HelloWorld} from './data/welcome-data.service';
 import {map} from 'rxjs/operators';
+import {API_URL} from '../app.constants';
 
 export const TOKEN = 'authenticateUser';
 export const AUTHENTICATED_USER = 'token';
@@ -40,7 +41,7 @@ export class BasicAuthenticationService {
       Authorization: basicAuthHeaderString
     });
 
-    return this.http.get<AuthenticationBean>('http://localhost:8080/basicauth', {headers})
+    return this.http.get<AuthenticationBean>(`${API_URL}/basicauth`, {headers})
       .pipe(
         map(
           data => {
